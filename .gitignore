@@ -1,7 +1,14 @@
-# Gerados pelo Ant/NetBeans
+# Arquivos gerados pelo Ant/NetBeans
 build/
 dist/
 nbproject/private/
+
+# Testes locais - nao versionar
+/test/
+/tests/
+*Test.java
+*Tests.java
+*IT.java
 
 # Dependencias locais (MySQL Connector/J)
 lib/*.jar
