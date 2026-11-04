@@ -3,7 +3,7 @@ build/
 dist/
 nbproject/private/
 
-# Dependencias locais - baixar Connector/J conforme README
+# Dependencias locais (MySQL Connector/J)
 lib/*.jar
 
 # Ambiente, dados e credenciais
