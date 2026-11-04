@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Mesmo estilo Ant/NetBeans do exemplo da disciplina, com driver JDBC em lib/. -->
+<project name="CadastroProdutosSwing" default="jar" basedir=".">
+    <property file="nbproject/project.properties"/>
+    <property name="classes.dir" location="${build.dir}/classes"/>
+    <property name="test.classes.dir" location="${build.dir}/test-classes"/>
+    <path id="bibliotecas">
+        <fileset dir="lib" includes="*.jar"/>
+    </path>
+
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+        <delete dir="${dist.dir}"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="${classes.dir}"/>
+        <javac srcdir="${src.dir}" destdir="${classes.dir}"
+               encoding="UTF-8" includeantruntime="false"
+               source="8" target="8" debug="true">
+            <classpath refid="bibliotecas"/>
+        </javac>
+    </target>
+
+    <target name="jar" depends="compile">
+        <mkdir dir="${dist.dir}"/>
+        <jar destfile="${dist.dir}/CadastroProdutosSwing.jar" basedir="${classes.dir}">
+            <manifest>
+                <attribute name="Main-Class" value="${main.class}"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="run" depends="compile">
+        <java classname="${main.class}" fork="true" failonerror="true">
+            <classpath>
+                <pathelement location="${classes.dir}"/>
+                <path refid="bibliotecas"/>
+            </classpath>
+        </java>
+    </target>
+
+    <target name="test" depends="compile">
+        <mkdir dir="${test.classes.dir}"/>
+        <javac srcdir="${test.src.dir}" destdir="${test.classes.dir}"
+               encoding="UTF-8" includeantruntime="false"
+               source="8" target="8">
+            <classpath>
+                <pathelement location="${classes.dir}"/>
+            </classpath>
+        </javac>
+        <java classname="cadastroprodutos.TestesValidacao" fork="true" failonerror="true">
+            <classpath>
+                <pathelement location="${classes.dir}"/>
+                <pathelement location="${test.classes.dir}"/>
+            </classpath>
+        </java>
+    </target>
+</project>

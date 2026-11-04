@@ -1,0 +1,22 @@
+# Gerados pelo Ant/NetBeans
+build/
+dist/
+nbproject/private/
+
+# Dependencias locais - baixar Connector/J conforme README
+lib/*.jar
+
+# Ambiente, dados e credenciais
+.env
+.env.*
+*.log
+*.sql.bak
+
+# IDE e sistema
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+.classpath
+.project
+.settings/

@@ -1,0 +1,3 @@
+Coloque aqui o JAR mysql-connector-j-*.jar do MySQL Connector/J.
+Download oficial: https://dev.mysql.com/downloads/connector/j/
+O driver nao vai para o GitHub. Em seguida, execute ant run.
