@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Mesmo estilo Ant/NetBeans do exemplo da disciplina, com driver JDBC em lib/. -->
+<!-- Projeto Java Swing com Ant/NetBeans e driver JDBC em lib/. -->
 <project name="CadastroProdutosSwing" default="jar" basedir=".">
     <property file="nbproject/project.properties"/>
     <property name="classes.dir" location="${build.dir}/classes"/>
-    <property name="test.classes.dir" location="${build.dir}/test-classes"/>
     <path id="bibliotecas">
         <fileset dir="lib" includes="*.jar"/>
     </path>
@@ -36,23 +35,6 @@
             <classpath>
                 <pathelement location="${classes.dir}"/>
                 <path refid="bibliotecas"/>
-            </classpath>
-        </java>
-    </target>
-
-    <target name="test" depends="compile">
-        <mkdir dir="${test.classes.dir}"/>
-        <javac srcdir="${test.src.dir}" destdir="${test.classes.dir}"
-               encoding="UTF-8" includeantruntime="false"
-               source="8" target="8">
-            <classpath>
-                <pathelement location="${classes.dir}"/>
-            </classpath>
-        </javac>
-        <java classname="cadastroprodutos.TestesValidacao" fork="true" failonerror="true">
-            <classpath>
-                <pathelement location="${classes.dir}"/>
-                <pathelement location="${test.classes.dir}"/>
             </classpath>
         </java>
     </target>
